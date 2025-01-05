@@ -11,7 +11,7 @@ public class ProfilePageSteps {
     private final ProfilePage profilePage = new ProfilePage();
 
     @Then("I should be logged in successfully")
-    public void profilePageDisplayed() {
+    public void profilePageDisplayed() throws InterruptedException {
         step("Profile Page is displayed");
         Assert.assertTrue(profilePage.state().isDisplayed(), "Profile page is not open");
     }

@@ -13,11 +13,8 @@ public class LoginPage extends Form {
     private final ITextBox emailInputField = elementFactory.getTextBox(By.id("account_email"), "Email Input Field");
     private final ITextBox passwordInputField = elementFactory.getTextBox(By.id("account_password"), "Password Input Field");
     private final IButton loginButton = elementFactory.getButton(
-            By.xpath("//div[@class='footer-form-submit']//button[contains(@class, 'captcha__submit') and .//span[@class='ui-button__text' and text()='Log in']]"),
-            "Log in Button",
-            ElementState.EXISTS_IN_ANY_STATE
-    );
-
+            By.xpath("//*[@id='login_form']/div[2]/div[4]/button"),
+            "Log in Button", ElementState.EXISTS_IN_ANY_STATE);
     private final ILink changeEmailLink = elementFactory.getLink(By.linkText("Change email"), "Change Email Link");
     private final IButton continueWithEmailButton = elementFactory.getButton(By.xpath("//button[contains(@class, 'captcha__submit') and .//span[text()='Continue with email']]"), "Continue with Email Button");
     private final ILink forgotPasswordLink = elementFactory.getLink(By.linkText("Forgot password?"), "Forgot Password Link");
@@ -39,9 +36,10 @@ public class LoginPage extends Form {
         continueWithEmailButton.state().waitForClickable();
         continueWithEmailButton.click();
     }
-    public void clickLoginButton() {
-        loginButton.state().waitForClickable(Duration.ofSeconds(10));
+    public void clickLoginButton() throws InterruptedException {
+        loginButton.state().waitForClickable();
         loginButton.click();
+        Thread.sleep(10000);
     }
     public void changeEmail(){
         changeEmailLink.state().waitForClickable();
