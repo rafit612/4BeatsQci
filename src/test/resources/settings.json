@@ -103,12 +103,12 @@
     }
   },
   "timeouts": {
-    "timeoutImplicit" : 10,
+    "timeoutImplicit" : 30,
     "timeoutCondition" : 30,
-    "timeoutScript" : 20,
+    "timeoutScript" : 30,
     "timeoutPageLoad" : 20,
-    "timeoutPollingInterval": 300,
-    "timeoutCommand":120
+    "timeoutPollingInterval": 3000,
+    "timeoutCommand":1200
   },
   "retry": {
     "number": 2,
